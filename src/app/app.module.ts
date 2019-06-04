@@ -10,6 +10,8 @@ import { HeadersEditorComponent } from './headers-editor/headers-editor.componen
 import { BodyEditorComponent } from './body-editor/body-editor.component';
 import { VerbEditorComponent } from './verb-editor/verb-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers })
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
