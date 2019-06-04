@@ -1,10 +1,12 @@
+import { state } from './reducers/index';
+import { RequestConfigEffects } from './states/Effects/requestConfig.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers, state } from './reducers';
+
 import { RequestEditorComponent } from './request-editor/request-editor.component';
 import { HeadersEditorComponent } from './headers-editor/headers-editor.component';
 import { BodyEditorComponent } from './body-editor/body-editor.component';
@@ -26,7 +28,7 @@ import { AppEffects } from './app.effects';
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(state),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects, RequestConfigEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,10 @@
+import { RequestConfig } from './../../../models/RequestConfig';
 import { Action } from '@ngrx/store';
-import { RequestConfig } from '../../../models/RequestConfig';
-
-
 
 export enum RequestConfigActionTypes {
     UpdateVerb = '[Verb] Update',
-    UpdateBody = '[Body] Update'
+    UpdateBody = '[Body] Update',
+    TestRequestConfig = '[RequestConfig] Test'
 }
 
 export class UpdateVerb implements Action {
@@ -18,4 +17,8 @@ export class UpdateBody implements Action {
     constructor(public body: string) {}
 }
 
+export class TestRequestConfig implements Action {
+    readonly type = RequestConfigActionTypes.TestRequestConfig;
+    constructor() {}
+}
 export type RequestConfigActions = RequestConfig ;

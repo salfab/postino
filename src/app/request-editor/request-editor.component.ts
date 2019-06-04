@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../reducers';
-import { UpdateVerb, UpdateBody } from '../states/actions/requestConfig/requestConfig.action';
+import { UpdateVerb, UpdateBody, TestRequestConfig } from '../states/actions/requestConfig/requestConfig.action';
 
 
 
@@ -40,4 +40,7 @@ export class RequestEditorComponent implements OnInit {
     console.warn('Got it');
   }
 
+  onTestRequest(event: Event) {
+    this.store.dispatch(new TestRequestConfig());
+  }
 }
