@@ -1,6 +1,6 @@
 <div>
-    <input type="radio" name="verb" value="GET">GET
-    <input type="radio" name="verb" value="POST">POST
-    <input type="radio" name="verb" value="PUT"> PUT
-    <input type="radio" name="verb" value="DELETE"> DELETE
+    <input type="radio" name="verb" value="GET" (change)="onChanged($event)">GET
+    <input type="radio" name="verb" value="POST" (change)="onChanged($event)">POST
+    <input type="radio" name="verb" value="PUT" (change)="onChanged($event)"> PUT
+    <input type="radio" name="verb" value="DELETE" (change)="onChanged($event)"> DELETE
   </div>

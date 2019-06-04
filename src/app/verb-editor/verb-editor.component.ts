@@ -8,15 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VerbEditorComponent implements OnInit {
 
-  @Input()
-  public form: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder
-) { }
+  constructor() { }
 
   ngOnInit() {
-    this.form.addControl('verb', this.formBuilder.control(null));
   }
 
+  onChanged(event: Event) {
+    event.preventDefault();
+    console.warn(event.target.value);
+  }
 }
