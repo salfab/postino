@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../reducers';
-import { UpdateVerb } from '../states/actions/requestConfig/requestConfig.action';
+import { UpdateVerb, UpdateBody } from '../states/actions/requestConfig/requestConfig.action';
 
 
 
@@ -25,6 +25,10 @@ export class RequestEditorComponent implements OnInit {
     this.form = this.formBuilder.group({
       prout: ['', Validators.required]
     });
+  }
+
+  onBodyChanged(requestConfig: RequestConfig) {
+    this.store.dispatch(new UpdateBody(requestConfig.body));
   }
 
   onVerbChanged(requestConfig: RequestConfig) {
