@@ -1,5 +1,6 @@
+import { RequestConfig } from './../models/RequestConfig';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-verb-editor',
@@ -10,11 +11,14 @@ export class VerbEditorComponent implements OnInit {
 
   constructor() { }
 
+  @Output() public verbChanged = new EventEmitter<RequestConfig>();
+
   ngOnInit() {
   }
 
   onChanged(event: Event) {
     event.preventDefault();
-    console.warn(event.target.value);
+    const field = event.target as HTMLInputElement;
+    this.verbChanged.emit({ verb : field.value} as RequestConfig);
   }
 }

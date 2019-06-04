@@ -1,5 +1,8 @@
+import { RequestConfig } from './../models/RequestConfig';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '../reducers';
 
 
 
@@ -13,6 +16,7 @@ export class RequestEditorComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
+    private store: Store<State>,
     private formBuilder: FormBuilder
 ) { }
 
@@ -21,6 +25,10 @@ export class RequestEditorComponent implements OnInit {
       prout: ['', Validators.required]
   });
 }
+
+  onVerbChanged(requestConfig: RequestConfig) {
+    this.store.dispatch();
+  }
 
   onSave(event: Event) {
     event.preventDefault();
