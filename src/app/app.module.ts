@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers, state } from './reducers';
 import { RequestEditorComponent } from './request-editor/request-editor.component';
 import { HeadersEditorComponent } from './headers-editor/headers-editor.component';
 import { BodyEditorComponent } from './body-editor/body-editor.component';
@@ -25,7 +25,7 @@ import { AppEffects } from './app.effects';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(state),
     EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
